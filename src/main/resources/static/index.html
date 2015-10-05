@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title>BagBox</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="js/hello.js"></script>
+</head>
+
+<body ng-app="BagBoxApp">
+	<div ng-controller="inscriptionController">
+		<form name="inscriptionForm">
+
+			<!-- First Name -->
+			<label> First name: <input type="text" name="userName"
+				ng-model="user.name" required>
+			</label>
+			<div role="alert">
+				<span class="error" ng-show="myForm.userName.$error.required">
+					Required!</span>
+			</div>
+
+			<!-- Last Name -->
+			<label> Last name: <input type="text" name="lastName"
+				ng-model="user.last" ng-minlength="3" ng-maxlength="10">
+			</label>
+			<div role="alert">
+				<span class="error" ng-show="myForm.lastName.$error.minlength">
+					Too short!</span> <span class="error"
+					ng-show="myForm.lastName.$error.maxlength"> Too long!</span>
+			</div>
+
+			<!-- Mail -->
+			<label>Email: <input type="email" name="input"
+				ng-model="email.text" required>
+			</label>
+			<div role="alert">
+				<span class="error" ng-show="myForm.input.$error.required">
+					Required!</span> <span class="error" ng-show="myForm.input.$error.email">
+					Not valid email!</span>
+			</div>
+			<!-- Phone -->
+			<!-- TODO -->
+			
+		</form>
+		<hr>
+		<tt>user = {{user}}</tt>
+		<br />
+		<tt>myForm.userName.$valid = {{myForm.userName.$valid}}</tt>
+		<br />
+		<tt>myForm.userName.$error = {{myForm.userName.$error}}</tt>
+		<br />
+		<tt>myForm.lastName.$valid = {{myForm.lastName.$valid}}</tt>
+		<br />
+		<tt>myForm.lastName.$error = {{myForm.lastName.$error}}</tt>
+		<br />
+		<tt>myForm.$valid = {{myForm.$valid}}</tt>
+		<br />
+		<tt>myForm.$error.required = {{!!myForm.$error.required}}</tt>
+		<br />
+		<tt>myForm.$error.minlength = {{!!myForm.$error.minlength}}</tt>
+		<br />
+		<tt>myForm.$error.maxlength = {{!!myForm.$error.maxlength}}</tt>
+		<br />
+	</div>
+
+</body>
+</html>
